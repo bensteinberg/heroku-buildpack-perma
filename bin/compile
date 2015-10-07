@@ -16,7 +16,6 @@ mv ${HEROKU_FILES_DIR}/Procfile ${PROJECT_DIR}
 mv ${HEROKU_FILES_DIR}/bin ${PROJECT_DIR}
 mv ${HEROKU_FILES_DIR}/amazon-rds-combined-ca-bundle.pem ${PROJECT_DIR}
 mv ${HEROKU_FILES_DIR}/runtime.txt ${PROJECT_DIR}
-mv ${HEROKU_FILES_DIR}/wsgi_heroku.py ${PROJECT_DIR}/perma
 mv ${HEROKU_FILES_DIR}/heroku_settings.py ${PROJECT_DIR}/perma/settings/settings.py
 
 echo "-----> Appending extra requirements"
