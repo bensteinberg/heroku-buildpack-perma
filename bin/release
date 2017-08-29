@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cat << EOF
+---
+addons:
+  - libnss3-tools
+EOF

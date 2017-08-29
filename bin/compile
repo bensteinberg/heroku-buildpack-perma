@@ -24,3 +24,8 @@ cat ${HEROKU_FILES_DIR}/extra_requirements.txt >> ${PROJECT_DIR}/requirements.tx
 echo "-----> Moving app folder into place"
 mv ${BUILD_DIR} ${TMP_BUILD_DIR}
 mv ${TMP_BUILD_DIR}/${PROJECT_NAME} ${BUILD_DIR}
+
+echo "-----> Installing CA cert for warcprox"
+mkdir -p $HOME/.pki/nssdb
+certutil -d $HOME/.pki/nssdb -N --empty-password
+certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n 'warcprox CA cert' -i services/warcprox/perma-warcprox-ca.pem
