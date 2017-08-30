@@ -27,5 +27,6 @@ mv ${TMP_BUILD_DIR}/${PROJECT_NAME} ${BUILD_DIR}
 
 echo "-----> Installing CA cert for warcprox"
 mkdir -p $HOME/.pki/nssdb
+export PATH="$BUILD_DIR/.apt/usr/bin:$PATH"
 certutil -d $HOME/.pki/nssdb -N --empty-password
 certutil -d sql:$HOME/.pki/nssdb -A -t "C,," -n 'warcprox CA cert' -i ${BUILD_DIR}/services/warcprox/perma-warcprox-ca.pem
