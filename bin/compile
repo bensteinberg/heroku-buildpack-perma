@@ -11,12 +11,14 @@ HEROKU_FILES_DIR=${BUILD_DIR}/services/heroku
 TMP_BUILD_DIR=/tmp/build
 
 echo "-----> Moving Heroku files into place"
-
 mv ${HEROKU_FILES_DIR}/bin ${PROJECT_DIR}
 mv ${HEROKU_FILES_DIR}/amazon-rds-combined-ca-bundle.pem ${PROJECT_DIR}
 mv ${HEROKU_FILES_DIR}/runtime.txt ${PROJECT_DIR}
 mv ${PROJECT_DIR}/perma/settings/deployments/settings_heroku.py ${PROJECT_DIR}/perma/settings/settings.py
 mv ${BUILD_DIR}/services/newrelic/newrelic.ini ${PROJECT_DIR}/perma/
+
+echo "-----> Setting up CA cert for warcprox"
+mv ${BUILD_DIR}/services/warcprox ${PROJECT_DIR}/
 
 echo "-----> Appending extra requirements"
 cat ${HEROKU_FILES_DIR}/extra_requirements.txt >> ${PROJECT_DIR}/requirements.txt
