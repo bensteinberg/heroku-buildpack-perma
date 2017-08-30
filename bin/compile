@@ -18,9 +18,6 @@ mv ${HEROKU_FILES_DIR}/runtime.txt ${PROJECT_DIR}
 mv ${PROJECT_DIR}/perma/settings/deployments/settings_heroku.py ${PROJECT_DIR}/perma/settings/settings.py
 mv ${BUILD_DIR}/services/newrelic/newrelic.ini ${PROJECT_DIR}/perma/
 
-echo "-----> Moving CA cert for warcprox into place"
-mv ${BUILD_DIR}/services/warcprox/perma-warcprox-ca.pem ${PROJECT_DIR}
-
 echo "-----> Appending extra requirements"
 cat ${HEROKU_FILES_DIR}/extra_requirements.txt >> ${PROJECT_DIR}/requirements.txt
 
