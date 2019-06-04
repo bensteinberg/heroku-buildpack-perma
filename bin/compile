@@ -24,3 +24,6 @@ cat ${HEROKU_FILES_DIR}/extra_requirements.txt >> ${PROJECT_DIR}/requirements.tx
 echo "-----> Moving app folder into place"
 mv ${BUILD_DIR} ${TMP_BUILD_DIR}
 mv ${TMP_BUILD_DIR}/${PROJECT_NAME} ${BUILD_DIR}
+
+echo "-----> Upgrading pip"
+pip install -U pip
